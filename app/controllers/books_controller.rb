@@ -14,9 +14,18 @@ class BooksController < ApplicationController
   end
 
   def create
+    book = Book.new(book_paramas)
+    book.save
+    redirect_to '/books'
   end
 
   def destroy
+  end
+
+  private
+
+  def book_paramas
+    params.require(:book).permit(:title, :body)
   end
 
 end
