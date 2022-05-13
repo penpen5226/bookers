@@ -4,12 +4,15 @@
     <thead>
         <tr>
             <th>title</th>
+            <% @books.each do |book| %>
             <th>body</th>
+              <span><%= book.title %></span>
+            <% end %>
             <th colspan = "3"></th>
         </tr>
     </thead>
     <tbody>
-        
+
     </tbody>
 </table>
 
