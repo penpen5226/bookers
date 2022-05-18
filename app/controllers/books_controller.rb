@@ -14,16 +14,16 @@ class BooksController < ApplicationController
 
   def update
     book = Book.find(params[:id])
-    book.update(book_paramas)
+    book.update(book_params)
     redirect_to book_path(book.id), notice: 'Book was successfully updated.'
   end
 
   def create
-    book = Book.new(book_paramas)
+    @book = Book.new(book_params)
     if book.save
       redirect_to book_path(book.id), notice: 'Book was successfully updated.'
     else
-      book = Book.all
+      @books = Book.all
       render :index
     end
   end
@@ -36,7 +36,7 @@ class BooksController < ApplicationController
 
   private
 
-  def book_paramas
+  def book_params
     params.require(:book).permit(:title, :body)
   end
 
