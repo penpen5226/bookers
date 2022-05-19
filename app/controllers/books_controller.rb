@@ -34,7 +34,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to books_path(book.id), notice: 'Book was successfully updated.'
+    redirect_to books_path, notice: 'Book was successfully updated.'
   end
 
   private
